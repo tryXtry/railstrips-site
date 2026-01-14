@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" class="h-full bg-white antialiased dark:bg-slate-900">
+  <head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="../logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dialog Component - Railstrips</title>
+  <script type="module" crossorigin src="/railstrips/assets/main-BzLGxJ1r.js"></script>
+  <link rel="stylesheet" crossorigin href="/railstrips/assets/main-B55iEA9z.css">
+</head>
+
+  <body class="flex h-full flex-col text-slate-900 dark:text-slate-50">
+    
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
+  <div class="w-full flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="flex items-center gap-2">
+        <img src="../logo.svg" class="h-8 w-8" width="30px" alt="Logo" />
+        <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Railstrips</span>
+      </a>
+    </div>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="../components/counter.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Components</a>
+      <a href="#" class="text-sm font-medium text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Documentation</a>
+      <a href="https://github.com/tryXtry/railstrips" class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200">
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+<aside class="w-64 overflow-y-auto border-r border-slate-200 bg-white py-6 dark:border-slate-800 dark:bg-slate-900 hidden md:block">
+    <div class="px-4 mb-4">
+        <h2 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Components</h2>
+    </div>
+    <nav class="space-y-1 px-2">
+       <a href="accordion.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">Accordion</span>
+       </a>
+       <a href="animate_on_scroll.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">AnimateOnScroll</span>
+       </a>
+       <a href="autocomplete.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">AutoComplete</span>
+       </a>
+       <a href="avatar.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">Avatar</span>
+       </a>
+       <a href="badge.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">Badge</span>
+       </a>
+       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">BlockUI</span>
+       </a>
+       <a href="breadcrumb.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">Breadcrumb</span>
+       </a>
+       <a href="clipboard.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">Clipboard</span>
+       </a>
+       <a href="counter.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">Counter</span>
+       </a>
+       <a href="dialog.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
+         <span class="truncate">Dialog</span>
+       </a>
+       <a href="tabs.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+         <span class="truncate">Tabs</span>
+       </a>
+    </nav>
+</aside>
+
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto bg-slate-50 p-8 dark:bg-slate-900/50">
+             <div class="mx-auto max-w-3xl">
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Dialog</h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Dialog is a container to display content in an overlay window.</p>
+                
+                <!-- Demo -->
+                <div class="mt-8 space-y-8">
+                    
+                    <!-- Basic Dialog -->
+                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
+                        <h2 class="text-xl font-semibold mb-4">Basic</h2>
+                        
+                        <div data-controller="dialog" data-action="keydown.esc@window->dialog#keydown">
+                            <button data-action="click->dialog#open" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
+                                Show Dialog
+                            </button>
+
+                            <!-- Overlay / Container -->
+                            <div data-dialog-target="container" data-action="click->dialog#clickOutside" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+                                <!-- Dialog Content -->
+                                <div class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800">
+                                    <h3 class="text-lg font-medium leading-6 text-slate-900 dark:text-white">
+                                        Dialog Title
+                                    </h3>
+                                    <div class="mt-2">
+                                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                        </p>
+                                    </div>
+
+                                    <div class="mt-4 flex justify-end">
+                                        <button data-action="click->dialog#close" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-900 hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-indigo-900/50 dark:text-indigo-100 dark:hover:bg-indigo-900">
+                                            Got it, thanks!
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Dialog (Non-dismissable) -->
+                     <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
+                        <h2 class="text-xl font-semibold mb-4">Modal (Non-dismissable)</h2>
+                        
+                        <div data-controller="dialog" data-dialog-dismissable-value="false">
+                            <button data-action="click->dialog#open" class="rounded bg-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500">
+                                Show Modal
+                            </button>
+
+                            <!-- Overlay / Container -->
+                            <div data-dialog-target="container" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+                                <!-- Dialog Content -->
+                                <div class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-800 border-2 border-pink-500">
+                                    <h3 class="text-lg font-medium leading-6 text-slate-900 dark:text-white">
+                                        Critical Alert
+                                    </h3>
+                                    <div class="mt-2">
+                                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                                            You cannot close this dialog by clicking outside or pressing Escape. You must take action.
+                                        </p>
+                                    </div>
+
+                                    <div class="mt-4 flex justify-end space-x-2">
+                                         <button data-action="click->dialog#close" class="inline-flex justify-center rounded-md border border-transparent bg-slate-200 px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-300 focus:outline-none">
+                                            Cancel
+                                        </button>
+                                        <button data-action="click->dialog#close" class="inline-flex justify-center rounded-md border border-transparent bg-pink-600 px-4 py-2 text-sm font-medium text-white hover:bg-pink-700 focus:outline-none">
+                                            Confirm
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Usage -->
+                <div class="mt-8">
+                    <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Usage</h2>
+                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="dialog" data-action="keydown.esc@window->dialog#keydown"&gt;
+  &lt;!-- Trigger --&gt;
+  &lt;button data-action="click->dialog#open"&gt;Open&lt;/button&gt;
+  
+  &lt;!-- Overlay --&gt;
+  &lt;div data-dialog-target="container" 
+       data-action="click->dialog#clickOutside"
+       class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50"&gt;
+     
+     &lt;!-- Content --&gt;
+     &lt;div class="bg-white p-6 rounded"&gt;
+       &lt;h3&gt;Title&lt;/h3&gt;
+       &lt;button data-action="click->dialog#close"&gt;Close&lt;/button&gt;
+     &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+             </div>
+        </main>
+    </div>
+    
+  </body>
+</html>

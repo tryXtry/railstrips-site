@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Rails (Vertical Tracks) - Slate-500 for visibility on light/dark backgrounds -->
+  <rect x="22" y="5" width="10" height="90" rx="5" fill="#64748b" />
+  <rect x="68" y="5" width="10" height="90" rx="5" fill="#64748b" />
+  
+  <!-- Strips (Horizontal Components) - Blue-600 -->
+  <!-- Top Strip -->
+  <rect x="12" y="20" width="76" height="12" rx="4" fill="#2563eb" />
+  <!-- Middle Strip -->
+  <rect x="12" y="44" width="76" height="12" rx="4" fill="#2563eb" />
+  <!-- Bottom Strip -->
+  <rect x="12" y="68" width="76" height="12" rx="4" fill="#2563eb" />
+</svg>
