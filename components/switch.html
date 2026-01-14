@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="../logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BlockUI Component - Railstrips</title>
+  <title>Switch Component - Railstrips</title>
   <script type="module" crossorigin src="/railstrips-site/assets/main-tFCwySWj.js"></script>
   <link rel="stylesheet" crossorigin href="/railstrips-site/assets/main-CLQ3a8WH.css">
 </head>
@@ -52,7 +52,7 @@
        <a href="badge.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Badge</span>
        </a>
-       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
+       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">BlockUI</span>
        </a>
        <a href="breadcrumb.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -106,7 +106,7 @@
        <a href="stepper.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Stepper</span>
        </a>
-       <a href="switch.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+       <a href="switch.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
          <span class="truncate">Switch</span>
        </a>
        <a href="tabs.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -125,62 +125,53 @@
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto bg-slate-50 p-8 dark:bg-slate-900/50">
              <div class="mx-auto max-w-3xl">
-                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">BlockUI</h1>
-                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">BlockUI can either block other components or the whole page.</p>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Switch</h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">A control that allows the user to toggle between checked and not-checked states.</p>
                 
                 <!-- Demo -->
                 <div class="mt-8 space-y-8">
                     
-                    <!-- Basic -->
-                    <div data-controller="blockui" data-blockui-blocked-value="false" class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Basic</h2>
-                        
-                        <div class="mb-4">
-                            <button data-action="click->blockui#toggle" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                Toggle Block
-                            </button>
+                    <!-- Basic Switch -->
+                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
+                        <h2 class="text-xl font-semibold mb-4">Basic Switch</h2>
+                        <div class="flex items-center space-x-4">
+                            <!-- Switch -->
+                            <div data-controller="switch" class="flex items-center">
+                                <button type="button" 
+                                        data-switch-target="button" 
+                                        data-action="click->switch#toggle"
+                                        class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:focus:ring-offset-slate-900" 
+                                        role="switch" 
+                                        aria-checked="false">
+                                  <span class="sr-only">Use setting</span>
+                                  <span aria-hidden="true" 
+                                        data-switch-target="thumb"
+                                        class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                                </button>
+                                <span class="ml-3 text-sm">
+                                    <span class="font-medium text-slate-900 dark:text-white">Annual billing</span>
+                                    <span class="text-slate-500 dark:text-slate-400">(Save 10%)</span>
+                                </span>
+                            </div>
                         </div>
-
-                        <div class="p-4 border border-slate-300 rounded dark:border-slate-700 bg-white dark:bg-slate-800">
-                             <h3 class="font-bold mb-2">Lorem Ipsum</h3>
-                             <p class="text-slate-600 dark:text-slate-400">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                             </p>
-                             
-                             <!-- Mask -->
-                             <div data-blockui-target="mask" class="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 hidden items-center justify-center backdrop-blur-sm rounded">
-                                 <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                 </svg>
-                             </div>
-                        </div>
-                        
-                        <!-- External Control Button requires referencing the controller, keeping it simple here with nested button above or using outlet if we were separate.
-                             For this demo, the toggle button needs to access the controller instance. 
-                             Wait, the button above is OUTSIDE the controller element. It won't work with data-action directly unless the controller is on a parent.
-                             
-                             Let's put the button INSIDE the controller scope for simplicity of demo, or wrap everything.
-                        -->
                     </div>
 
-                    <!-- Fixed Wrapper for Toggle -->
-                    <div data-controller="blockui" data-blockui-blocked-value="false" class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <div class="mb-4">
-                            <button data-action="click->blockui#toggle" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
-                                Toggle Block
+                    <!-- Pre-checked Switch -->
+                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
+                        <h2 class="text-xl font-semibold mb-4">Pre-checked</h2>
+                        <div data-controller="switch" data-switch-checked-value="true" class="flex items-center">
+                            <button type="button" 
+                                    data-switch-target="button" 
+                                    data-action="click->switch#toggle"
+                                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:focus:ring-offset-slate-900" 
+                                    role="switch" 
+                                    aria-checked="true">
+                              <span class="sr-only">Enable notifications</span>
+                              <span aria-hidden="true" 
+                                    data-switch-target="thumb"
+                                    class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
                             </button>
-                        </div>
-                        
-                        <div class="relative p-4 border border-slate-300 rounded dark:border-slate-700 bg-white dark:bg-slate-800">
-                             <h3 class="font-bold mb-2">Blockable Area</h3>
-                             <p class="text-slate-600 dark:text-slate-400">
-                                Click the button above to block/unblock this area.
-                             </p>
-                             
-                             <div data-blockui-target="mask" class="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 hidden items-center justify-center backdrop-blur-sm rounded">
-                                 <div class="font-bold text-slate-900 dark:text-white">Blocked</div>
-                             </div>
+                            <span class="ml-3 text-sm font-medium text-slate-900 dark:text-white">Notifications enabled</span>
                         </div>
                     </div>
 
@@ -189,14 +180,12 @@
                 <!-- Usage -->
                 <div class="mt-8">
                     <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Usage</h2>
-                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="blockui" data-blockui-blocked-value="false" class="relative"&gt;
-  &lt;!-- Content --&gt;
-  
-  &lt;!-- Mask --&gt;
-  &lt;div data-blockui-target="mask" 
-       class="absolute inset-0 bg-white/60 hidden items-center justify-center"&gt;
-     Loading...
-  &lt;/div&gt;
+                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="switch" data-switch-checked-value="false"&gt;
+  &lt;button data-switch-target="button" 
+          data-action="click->switch#toggle"
+          class="..."&gt;
+    &lt;span data-switch-target="thumb" class="..."&gt;&lt;/span&gt;
+  &lt;/button&gt;
 &lt;/div&gt;</code></pre>
                 </div>
              </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="../logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BlockUI Component - Railstrips</title>
+  <title>Range Component - Railstrips</title>
   <script type="module" crossorigin src="/railstrips-site/assets/main-tFCwySWj.js"></script>
   <link rel="stylesheet" crossorigin href="/railstrips-site/assets/main-CLQ3a8WH.css">
 </head>
@@ -52,7 +52,7 @@
        <a href="badge.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Badge</span>
        </a>
-       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
+       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">BlockUI</span>
        </a>
        <a href="breadcrumb.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -88,7 +88,7 @@
        <a href="progress_bar.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">ProgressBar</span>
        </a>
-       <a href="range.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+       <a href="range.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
          <span class="truncate">Range</span>
        </a>
        <a href="rating.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -125,62 +125,53 @@
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto bg-slate-50 p-8 dark:bg-slate-900/50">
              <div class="mx-auto max-w-3xl">
-                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">BlockUI</h1>
-                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">BlockUI can either block other components or the whole page.</p>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Range Slider</h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">A range input with value display.</p>
                 
                 <!-- Demo -->
                 <div class="mt-8 space-y-8">
                     
-                    <!-- Basic -->
-                    <div data-controller="blockui" data-blockui-blocked-value="false" class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Basic</h2>
-                        
-                        <div class="mb-4">
-                            <button data-action="click->blockui#toggle" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                Toggle Block
-                            </button>
+                    <!-- Basic Range -->
+                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
+                        <h2 class="text-xl font-semibold mb-4">Basic Range</h2>
+                        <div class="max-w-sm" data-controller="range">
+                            <label for="volume" class="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-200">Volume</label>
+                            <div class="mt-2 flex items-center space-x-4">
+                                <input type="range" 
+                                       id="volume" 
+                                       name="volume" 
+                                       min="0" 
+                                       max="100" 
+                                       value="50"
+                                       data-range-target="input"
+                                       data-action="input->range#update"
+                                       class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 dark:bg-slate-700 accent-indigo-600">
+                                <span data-range-target="value" class="text-sm font-medium text-slate-700 dark:text-slate-300 w-8">50</span>
+                            </div>
                         </div>
-
-                        <div class="p-4 border border-slate-300 rounded dark:border-slate-700 bg-white dark:bg-slate-800">
-                             <h3 class="font-bold mb-2">Lorem Ipsum</h3>
-                             <p class="text-slate-600 dark:text-slate-400">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                             </p>
-                             
-                             <!-- Mask -->
-                             <div data-blockui-target="mask" class="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 hidden items-center justify-center backdrop-blur-sm rounded">
-                                 <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                 </svg>
-                             </div>
-                        </div>
-                        
-                        <!-- External Control Button requires referencing the controller, keeping it simple here with nested button above or using outlet if we were separate.
-                             For this demo, the toggle button needs to access the controller instance. 
-                             Wait, the button above is OUTSIDE the controller element. It won't work with data-action directly unless the controller is on a parent.
-                             
-                             Let's put the button INSIDE the controller scope for simplicity of demo, or wrap everything.
-                        -->
                     </div>
 
-                    <!-- Fixed Wrapper for Toggle -->
-                    <div data-controller="blockui" data-blockui-blocked-value="false" class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <div class="mb-4">
-                            <button data-action="click->blockui#toggle" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
-                                Toggle Block
-                            </button>
-                        </div>
-                        
-                        <div class="relative p-4 border border-slate-300 rounded dark:border-slate-700 bg-white dark:bg-slate-800">
-                             <h3 class="font-bold mb-2">Blockable Area</h3>
-                             <p class="text-slate-600 dark:text-slate-400">
-                                Click the button above to block/unblock this area.
-                             </p>
-                             
-                             <div data-blockui-target="mask" class="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 hidden items-center justify-center backdrop-blur-sm rounded">
-                                 <div class="font-bold text-slate-900 dark:text-white">Blocked</div>
-                             </div>
+                    <!-- Range with Bubble -->
+                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8 pt-12">
+                        <h2 class="text-xl font-semibold mb-4">Range with Bubble</h2>
+                        <div class="max-w-sm relative pb-2" data-controller="range">
+                            <label for="steps" class="sr-only">Steps</label>
+                            
+                            <!-- Bubble -->
+                            <output data-range-target="bubble" 
+                                    class="absolute -top-8 left-1/2 -translate-x-1/2 rounded bg-indigo-600 px-2 py-1 text-xs font-semibold text-white shadow-sm">
+                                50
+                            </output>
+
+                            <input type="range" 
+                                   id="steps" 
+                                   name="steps" 
+                                   min="0" 
+                                   max="100" 
+                                   value="50"
+                                   data-range-target="input"
+                                   data-action="input->range#update"
+                                   class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 dark:bg-slate-700 accent-indigo-600">
                         </div>
                     </div>
 
@@ -189,14 +180,9 @@
                 <!-- Usage -->
                 <div class="mt-8">
                     <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Usage</h2>
-                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="blockui" data-blockui-blocked-value="false" class="relative"&gt;
-  &lt;!-- Content --&gt;
-  
-  &lt;!-- Mask --&gt;
-  &lt;div data-blockui-target="mask" 
-       class="absolute inset-0 bg-white/60 hidden items-center justify-center"&gt;
-     Loading...
-  &lt;/div&gt;
+                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="range" class="relative"&gt;
+  &lt;output data-range-target="bubble" class="absolute ..."&gt;&lt;/output&gt;
+  &lt;input type="range" data-range-target="input" data-action="input->range#update"&gt;
 &lt;/div&gt;</code></pre>
                 </div>
              </div>

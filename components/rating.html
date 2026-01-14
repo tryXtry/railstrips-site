@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="../logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avatar Component - Railstrips</title>
+  <title>Rating Component - Railstrips</title>
   <script type="module" crossorigin src="/railstrips-site/assets/main-tFCwySWj.js"></script>
   <link rel="stylesheet" crossorigin href="/railstrips-site/assets/main-CLQ3a8WH.css">
 </head>
@@ -46,7 +46,7 @@
        <a href="autocomplete.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">AutoComplete</span>
        </a>
-       <a href="avatar.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
+       <a href="avatar.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Avatar</span>
        </a>
        <a href="badge.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -91,7 +91,7 @@
        <a href="range.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Range</span>
        </a>
-       <a href="rating.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+       <a href="rating.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
          <span class="truncate">Rating</span>
        </a>
        <a href="scroll_top.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -125,117 +125,156 @@
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto bg-slate-50 p-8 dark:bg-slate-900/50">
              <div class="mx-auto max-w-3xl">
-                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Avatar</h1>
-                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Avatar represents people using icons, labels and images.</p>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Rating</h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Star rating component with read-only support.</p>
                 
                 <!-- Demo -->
                 <div class="mt-8 space-y-8">
                     
-                    <!-- Label -->
+                    <!-- Basic Rating -->
                     <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Label</h2>
-                        <div class="flex flex-wrap gap-4 items-end">
-                             <div class="inline-flex items-center justify-center w-8 h-8 overflow-hidden bg-slate-100 rounded bg-slate-200 dark:bg-slate-700">
-                                <span class="text-sm font-medium text-slate-600 dark:text-slate-300">P</span>
-                             </div>
-                             <div class="inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-indigo-100 rounded bg-indigo-200 dark:bg-indigo-900">
-                                <span class="font-medium text-indigo-600 dark:text-indigo-300">V</span>
-                             </div>
-                             <div class="inline-flex items-center justify-center w-12 h-12 overflow-hidden bg-emerald-100 rounded bg-emerald-200 dark:bg-emerald-900">
-                                <span class="text-lg font-medium text-emerald-600 dark:text-emerald-300">U</span>
-                             </div>
+                        <h2 class="text-xl font-semibold mb-4">Basic Rating</h2>
+                        <div data-controller="rating" 
+                             data-rating-rating-value="3"
+                             data-rating-on-class="text-yellow-400"
+                             data-rating-off-class="text-slate-300 dark:text-slate-600">
+                            
+                            <input type="hidden" data-rating-target="input" name="rating">
+                            
+                            <div class="flex gap-1">
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-action="click->rating#rate mouseenter->rating#hover mouseleave->rating#reset"
+                                            data-rating-value-param="1"
+                                            class="focus:outline-none transition-colors duration-200">
+                                        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-action="click->rating#rate mouseenter->rating#hover mouseleave->rating#reset"
+                                            data-rating-value-param="2"
+                                            class="focus:outline-none transition-colors duration-200">
+                                        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-action="click->rating#rate mouseenter->rating#hover mouseleave->rating#reset"
+                                            data-rating-value-param="3"
+                                            class="focus:outline-none transition-colors duration-200">
+                                        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-action="click->rating#rate mouseenter->rating#hover mouseleave->rating#reset"
+                                            data-rating-value-param="4"
+                                            class="focus:outline-none transition-colors duration-200">
+                                        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-action="click->rating#rate mouseenter->rating#hover mouseleave->rating#reset"
+                                            data-rating-value-param="5"
+                                            class="focus:outline-none transition-colors duration-200">
+                                        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                            </div>
+                            <div class="mt-2 text-sm text-slate-500">Selected: <span data-rating-target="display">3</span></div>
                         </div>
                     </div>
 
-                    <!-- Label - Circle -->
+                    <!-- Read Only -->
                     <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Circle</h2>
-                        <div class="flex flex-wrap gap-4 items-end">
-                             <div class="inline-flex items-center justify-center w-8 h-8 overflow-hidden bg-slate-100 rounded-full bg-slate-200 dark:bg-slate-700">
-                                <span class="text-sm font-medium text-slate-600 dark:text-slate-300">P</span>
-                             </div>
-                             <div class="inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-indigo-100 rounded-full bg-indigo-200 dark:bg-indigo-900">
-                                <span class="font-medium text-indigo-600 dark:text-indigo-300">V</span>
-                             </div>
-                             <div class="inline-flex items-center justify-center w-12 h-12 overflow-hidden bg-emerald-100 rounded-full bg-emerald-200 dark:bg-emerald-900">
-                                <span class="text-lg font-medium text-emerald-600 dark:text-emerald-300">U</span>
-                             </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Icon -->
-                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Icon</h2>
-                        <div class="flex flex-wrap gap-4 items-end">
-                             <div class="inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-slate-100 rounded-full bg-slate-200 dark:bg-slate-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-500">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                </svg>
-                             </div>
-                             <div class="inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-indigo-100 rounded-full bg-indigo-200 dark:bg-indigo-900">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-indigo-600 dark:text-indigo-300">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                                </svg>
-                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Image -->
-                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Image</h2>
-                        <div class="flex flex-wrap gap-4 items-end">
-                             <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                             <img class="inline-block h-12 w-12 rounded ring-2 ring-white dark:ring-slate-800" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                        </div>
-                    </div>
-
-                    <!-- Image with Fallback -->
-                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Image Fallback</h2>
-                        <div class="flex flex-wrap gap-4 items-end">
-                             <!-- Valid Image -->
-                             <div data-controller="avatar" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700">
-                                <img data-avatar-target="image" 
-                                     data-action="error->avatar#handleError"
-                                     src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
-                                     class="w-full h-full object-cover">
-                                <span data-avatar-target="fallback" class="hidden font-medium text-slate-600 dark:text-slate-300">FB</span>
-                             </div>
-
-                             <!-- Broken Image -->
-                             <div data-controller="avatar" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700">
-                                <img data-avatar-target="image" 
-                                     data-action="error->avatar#handleError"
-                                     src="https://invalid-image.url/notfound.jpg" 
-                                     class="w-full h-full object-cover">
-                                <span data-avatar-target="fallback" class="hidden font-medium text-slate-600 dark:text-slate-300">BR</span>
-                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Avatar Group -->
-                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Avatar Group</h2>
-                        <div class="flex -space-x-2 overflow-hidden">
-                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-800" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-800" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-800" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="">
-                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                            <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 ring-2 ring-white dark:bg-slate-700 dark:ring-slate-800">
-                                <span class="text-xs font-medium leading-none text-slate-500 dark:text-slate-400">+9</span>
+                        <h2 class="text-xl font-semibold mb-4">Read Only</h2>
+                        <div data-controller="rating" 
+                             data-rating-rating-value="4"
+                             data-rating-readonly-value="true"
+                             data-rating-on-class="text-yellow-400"
+                             data-rating-off-class="text-slate-300 dark:text-slate-600">
+                            
+                            <div class="flex gap-1">
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-rating-value-param="1"
+                                            disabled
+                                            class="focus:outline-none cursor-default">
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-rating-value-param="2"
+                                            disabled
+                                            class="focus:outline-none cursor-default">
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-rating-value-param="3"
+                                            disabled
+                                            class="focus:outline-none cursor-default">
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-rating-value-param="4"
+                                            disabled
+                                            class="focus:outline-none cursor-default">
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
+                                    <button type="button" 
+                                            data-rating-target="item" 
+                                            data-rating-value-param="5"
+                                            disabled
+                                            class="focus:outline-none cursor-default">
+                                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    </button>
+                                
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <!-- Usage -->
                 <div class="mt-8">
                     <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Usage</h2>
-                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="avatar" class="relative ..."&gt;
-  &lt;img data-avatar-target="image" 
-       data-action="error->avatar#handleError"
-       src="..."&gt;
-  &lt;span data-avatar-target="fallback" class="hidden"&gt;Initials&lt;/span&gt;
+                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="rating" 
+     data-rating-on-class="text-yellow-400" 
+     data-rating-off-class="text-slate-300"&gt;
+  &lt;input type="hidden" data-rating-target="input"&gt;
+  &lt;button data-rating-target="item" data-action="click->rating#rate" data-rating-value-param="1"&gt;...&lt;/button&gt;
+  &lt;button data-rating-target="item" data-action="click->rating#rate" data-rating-value-param="2"&gt;...&lt;/button&gt;
+  ...
 &lt;/div&gt;</code></pre>
                 </div>
              </div>

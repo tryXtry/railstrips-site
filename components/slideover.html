@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="../logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BlockUI Component - Railstrips</title>
+  <title>Slideover Component - Railstrips</title>
   <script type="module" crossorigin src="/railstrips-site/assets/main-tFCwySWj.js"></script>
   <link rel="stylesheet" crossorigin href="/railstrips-site/assets/main-CLQ3a8WH.css">
 </head>
@@ -52,7 +52,7 @@
        <a href="badge.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Badge</span>
        </a>
-       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
+       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">BlockUI</span>
        </a>
        <a href="breadcrumb.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -100,7 +100,7 @@
        <a href="skeleton.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Skeleton</span>
        </a>
-       <a href="slideover.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+       <a href="slideover.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
          <span class="truncate">Slideover</span>
        </a>
        <a href="stepper.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -125,79 +125,138 @@
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto bg-slate-50 p-8 dark:bg-slate-900/50">
              <div class="mx-auto max-w-3xl">
-                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">BlockUI</h1>
-                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">BlockUI can either block other components or the whole page.</p>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Slideover</h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">A panel that slides in from the edge of the screen, commonly used for details or actions.</p>
                 
                 <!-- Demo -->
                 <div class="mt-8 space-y-8">
                     
-                    <!-- Basic -->
-                    <div data-controller="blockui" data-blockui-blocked-value="false" class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Basic</h2>
+                    <!-- Basic Slideover -->
+                    <div class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
+                        <h2 class="text-xl font-semibold mb-4">Basic Slideover</h2>
                         
-                        <div class="mb-4">
-                            <button data-action="click->blockui#toggle" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                Toggle Block
-                            </button>
+                        <div data-controller="slideover" class="hidden relative z-50" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+                            <!-- Background backdrop -->
+                            <div data-slideover-target="overlay" class="fixed inset-0 bg-slate-500 bg-opacity-75 transition-opacity opacity-0"></div>
+                          
+                            <div class="fixed inset-0 overflow-hidden">
+                              <div class="absolute inset-0 overflow-hidden">
+                                <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                                  
+                                  <!-- Slide-over panel -->
+                                  <div data-slideover-target="panel" class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-500 sm:duration-700 translate-x-full">
+                                    <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl dark:bg-slate-900">
+                                      <div class="px-4 sm:px-6">
+                                        <div class="flex items-start justify-between">
+                                          <h2 class="text-base font-semibold leading-6 text-slate-900 dark:text-white" id="slide-over-title">Panel Title</h2>
+                                          <div class="ml-3 flex h-7 items-center">
+                                            <button type="button" data-action="slideover#close" class="relative rounded-md bg-white text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-slate-900 dark:text-slate-500 dark:hover:text-slate-400">
+                                              <span class="absolute -inset-2.5"></span>
+                                              <span class="sr-only">Close panel</span>
+                                              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                              </svg>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="relative mt-6 flex-1 px-4 sm:px-6">
+                                        <!-- Your content -->
+                                        <p class="text-slate-600 dark:text-slate-400">
+                                            This is the content of the slideover. You can put forms, details, or any other content here.
+                                        </p>
+                                        <div class="mt-4 border-t border-slate-200 dark:border-slate-800 pt-4">
+                                            <div class="h-96 rounded-lg border-2 border-dashed border-slate-200 dark:border-slate-700"></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
                         </div>
 
-                        <div class="p-4 border border-slate-300 rounded dark:border-slate-700 bg-white dark:bg-slate-800">
-                             <h3 class="font-bold mb-2">Lorem Ipsum</h3>
-                             <p class="text-slate-600 dark:text-slate-400">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                             </p>
-                             
-                             <!-- Mask -->
-                             <div data-blockui-target="mask" class="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 hidden items-center justify-center backdrop-blur-sm rounded">
-                                 <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                 </svg>
-                             </div>
-                        </div>
+                        <button data-action="click->slideover#open:prevent"
+                                onclick="document.querySelector('[data-controller=\'slideover\']').dispatchEvent(new CustomEvent('slideover:open'))"
+                                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Open Slideover
+                        </button>
                         
-                        <!-- External Control Button requires referencing the controller, keeping it simple here with nested button above or using outlet if we were separate.
-                             For this demo, the toggle button needs to access the controller instance. 
-                             Wait, the button above is OUTSIDE the controller element. It won't work with data-action directly unless the controller is on a parent.
+                        <!-- Note: The button needs to access the controller instance. 
+                             Since the button is OUTSIDE the controller scope in this structure, 
+                             we can't use data-action="slideover#open" directly unless we wrap everything.
                              
-                             Let's put the button INSIDE the controller scope for simplicity of demo, or wrap everything.
+                             Solution 1: Wrap everything in a container with another controller or the same controller?
+                             If we wrap the button inside the controller element, then the controller element acts as a wrapper (visible).
+                             But slideover controller toggles "hidden" on itself (the overlay container).
+                             So button must be outside.
+
+                             Solution 2: Use an event bus or dispatch event to window?
+                             Or global ID.
                         -->
-                    </div>
-
-                    <!-- Fixed Wrapper for Toggle -->
-                    <div data-controller="blockui" data-blockui-blocked-value="false" class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <div class="mb-4">
-                            <button data-action="click->blockui#toggle" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
-                                Toggle Block
+                        <script>
+                            // Simple script to trigger open for demo
+                            function openSlideover() {
+                                const slideover = document.querySelector('[data-controller="slideover"]');
+                                // Get controller instance via Stimulus application? 
+                                // Or simpler: dispatch event if controller listens?
+                                // Controller doesn't listen to window. 
+                                // But we can get the controller instance from element if we had access to application.
+                                
+                                // Hack for demo: toggle 'hidden' manually? No, need animation.
+                                // Best way: The button should be part of a larger controller, OR trigger an event.
+                                // Or we simply modify the DOM structure so the controller is on a wrapper?
+                                // If controller is on wrapper, then "hidden" class applies to wrapper.
+                                // But wrapper contains button AND slideover?
+                                // If "hidden" is applied to wrapper, button is hidden too!
+                                
+                                // Standard pattern: Remote control.
+                                // Let's use a simple event dispatch to the element, and add an action to the element to listen for it?
+                                // <div ... data-action="custom-open->slideover#open">
+                            }
+                        </script>
+                        
+                        <!-- Updated structure to allow easier triggering -->
+                         <div class="mt-4">
+                            <p class="text-sm text-slate-500">
+                                For this demo, we use a simple inline script to find the controller element and call `open()`. 
+                                In a real app, you might use an outbound action or a global event listener.
+                            </p>
+                            <button onclick="document.querySelector('[data-controller=\'slideover\']').dispatchEvent(new CustomEvent('open-slideover'))"
+                                    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
+                                Trigger Slideover
                             </button>
                         </div>
-                        
-                        <div class="relative p-4 border border-slate-300 rounded dark:border-slate-700 bg-white dark:bg-slate-800">
-                             <h3 class="font-bold mb-2">Blockable Area</h3>
-                             <p class="text-slate-600 dark:text-slate-400">
-                                Click the button above to block/unblock this area.
-                             </p>
-                             
-                             <div data-blockui-target="mask" class="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 hidden items-center justify-center backdrop-blur-sm rounded">
-                                 <div class="font-bold text-slate-900 dark:text-white">Blocked</div>
-                             </div>
-                        </div>
-                    </div>
 
+                    </div>
+                    
                 </div>
+                
+                <!-- Adjust Slideover HTML to listen for event -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const el = document.querySelector('[data-controller="slideover"]');
+                        if(el) {
+                            el.setAttribute('data-action', 'open-slideover->slideover#open');
+                        }
+                    });
+                </script>
 
                 <!-- Usage -->
                 <div class="mt-8">
                     <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Usage</h2>
-                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="blockui" data-blockui-blocked-value="false" class="relative"&gt;
-  &lt;!-- Content --&gt;
-  
-  &lt;!-- Mask --&gt;
-  &lt;div data-blockui-target="mask" 
-       class="absolute inset-0 bg-white/60 hidden items-center justify-center"&gt;
-     Loading...
+                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;!-- Controller element (hidden by default) --&gt;
+&lt;div data-controller="slideover" class="hidden relative z-50"&gt;
+  &lt;div data-slideover-target="overlay" class="opacity-0 transition..."&gt;&lt;/div&gt;
+  &lt;div data-slideover-target="panel" class="translate-x-full transition..."&gt;
+     &lt;button data-action="slideover#close"&gt;Close&lt;/button&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+
+&lt;!-- Trigger --&gt;
+&lt;button data-action="click->slideover#open"&gt;Open&lt;/button&gt; 
+&lt;!-- Note: Button must be inside controller or use events --&gt;</code></pre>
                 </div>
              </div>
         </main>

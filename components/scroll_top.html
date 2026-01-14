@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="../logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BlockUI Component - Railstrips</title>
+  <title>ScrollTop Component - Railstrips</title>
   <script type="module" crossorigin src="/railstrips-site/assets/main-tFCwySWj.js"></script>
   <link rel="stylesheet" crossorigin href="/railstrips-site/assets/main-CLQ3a8WH.css">
 </head>
@@ -52,7 +52,7 @@
        <a href="badge.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Badge</span>
        </a>
-       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
+       <a href="blockui.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">BlockUI</span>
        </a>
        <a href="breadcrumb.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -94,7 +94,7 @@
        <a href="rating.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
          <span class="truncate">Rating</span>
        </a>
-       <a href="scroll_top.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+       <a href="scroll_top.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white">
          <span class="truncate">ScrollTop</span>
        </a>
        <a href="skeleton.html" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
@@ -125,79 +125,76 @@
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto bg-slate-50 p-8 dark:bg-slate-900/50">
              <div class="mx-auto max-w-3xl">
-                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">BlockUI</h1>
-                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">BlockUI can either block other components or the whole page.</p>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">ScrollTop</h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.</p>
                 
-                <!-- Demo -->
-                <div class="mt-8 space-y-8">
+                <div class="mt-8 h-[2000px] border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-8 flex flex-col items-center justify-start">
+                    <p class="text-slate-500">Scroll down to see the ScrollTop button...</p>
                     
-                    <!-- Basic -->
-                    <div data-controller="blockui" data-blockui-blocked-value="false" class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <h2 class="text-xl font-semibold mb-4">Basic</h2>
-                        
-                        <div class="mb-4">
-                            <button data-action="click->blockui#toggle" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                Toggle Block
-                            </button>
-                        </div>
-
-                        <div class="p-4 border border-slate-300 rounded dark:border-slate-700 bg-white dark:bg-slate-800">
-                             <h3 class="font-bold mb-2">Lorem Ipsum</h3>
-                             <p class="text-slate-600 dark:text-slate-400">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                             </p>
-                             
-                             <!-- Mask -->
-                             <div data-blockui-target="mask" class="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 hidden items-center justify-center backdrop-blur-sm rounded">
-                                 <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                 </svg>
-                             </div>
-                        </div>
-                        
-                        <!-- External Control Button requires referencing the controller, keeping it simple here with nested button above or using outlet if we were separate.
-                             For this demo, the toggle button needs to access the controller instance. 
-                             Wait, the button above is OUTSIDE the controller element. It won't work with data-action directly unless the controller is on a parent.
-                             
-                             Let's put the button INSIDE the controller scope for simplicity of demo, or wrap everything.
-                        -->
+                    <div class="mt-[1000px] p-4 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 rounded-lg">
+                        You've scrolled quite a bit! The button should be visible now.
                     </div>
-
-                    <!-- Fixed Wrapper for Toggle -->
-                    <div data-controller="blockui" data-blockui-blocked-value="false" class="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 p-8">
-                        <div class="mb-4">
-                            <button data-action="click->blockui#toggle" class="rounded bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
-                                Toggle Block
-                            </button>
-                        </div>
-                        
-                        <div class="relative p-4 border border-slate-300 rounded dark:border-slate-700 bg-white dark:bg-slate-800">
-                             <h3 class="font-bold mb-2">Blockable Area</h3>
-                             <p class="text-slate-600 dark:text-slate-400">
-                                Click the button above to block/unblock this area.
-                             </p>
-                             
-                             <div data-blockui-target="mask" class="absolute inset-0 bg-white/60 dark:bg-black/60 z-10 hidden items-center justify-center backdrop-blur-sm rounded">
-                                 <div class="font-bold text-slate-900 dark:text-white">Blocked</div>
-                             </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- ScrollTop Component -->
+                <button data-controller="scroll-top"
+                        data-scroll-top-threshold-value="200"
+                        data-scroll-top-show-class="translate-y-0 opacity-100"
+                        data-scroll-top-hide-class="translate-y-10 opacity-0"
+                        data-action="click->scroll-top#scrollToTop"
+                        class="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-indigo-600 text-white shadow-lg transition-all duration-300 transform translate-y-10 opacity-0 focus:outline-none hover:bg-indigo-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                    </svg>
+                </button>
 
                 <!-- Usage -->
                 <div class="mt-8">
                     <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Usage</h2>
-                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;div data-controller="blockui" data-blockui-blocked-value="false" class="relative"&gt;
-  &lt;!-- Content --&gt;
-  
-  &lt;!-- Mask --&gt;
-  &lt;div data-blockui-target="mask" 
-       class="absolute inset-0 bg-white/60 hidden items-center justify-center"&gt;
-     Loading...
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-800 p-4 text-sm text-slate-50"><code class="language-html">&lt;button data-controller="scroll-top"
+        data-scroll-top-threshold-value="200"
+        data-scroll-top-show-class="translate-y-0 opacity-100"
+        data-scroll-top-hide-class="translate-y-10 opacity-0"
+        data-action="click->scroll-top#scrollToTop"
+        class="fixed bottom-8 right-8 ..."&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+
+                <div class="mt-12">
+                    <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Attributes</h2>
+                    <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
+                        <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
+                            <thead class="bg-slate-50 dark:bg-slate-900/50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">Value</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">Type</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">Default</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white dark:divide-slate-800 dark:bg-slate-900">
+                                <tr>
+                                    <td class="px-6 py-4 text-sm font-mono text-indigo-600 dark:text-indigo-400">threshold</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Number</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">400</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Scroll position in pixels to display the button.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 text-sm font-mono text-indigo-600 dark:text-indigo-400">behavior</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">String</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">smooth</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Scrolling behavior (smooth or auto).</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 text-sm font-mono text-indigo-600 dark:text-indigo-400">target</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">String</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">window</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">The scrolling element. Either "window" or a CSS selector.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
              </div>
         </main>
